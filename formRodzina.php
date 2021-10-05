@@ -35,13 +35,11 @@
             $i++;
           }
 
-
-          $AgeAvg = $AgeSum / $i;
-          $fileName = $_SERVER['PHP_SELF'];
+          $AgeAvg = number_format($AgeSum / $i, 2);
           echo <<< EOF
           Ilość osób: $i
           Średnia wieku wynosi: $AgeAvg
-          <br><a href="$fileName">Powrót</a>
+          <br><a href="./formRodzina.php">Powrót</a>
           EOF;
          }
     }
