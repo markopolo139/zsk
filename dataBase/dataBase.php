@@ -2,7 +2,7 @@
 
   echo "<h4> Użytkownicy </h4>";
 
-  $connect = new mysqli("localhost", "root", "", "zsk4bgr2");
+  require "./baseUtils/connect.php";
 
   $sql = "SELECT * FROM `users`;";
 

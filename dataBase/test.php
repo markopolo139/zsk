@@ -9,6 +9,7 @@
     <?php
       require_once "./dataBase.php";
       require_once "./dataBaseTable.php";
+      require_once "./baseDelete.php";
     ?>
   </body>
 </html>
