@@ -25,7 +25,8 @@
         $message = "Nie Usunięto wiersza";
       }
 
-      header("location: ./dataBaseTable.php?message=$message");
+      //header("location: ./dataBaseTable.php?message=$message");
+      header("location: ./dataBaseTableWithInsert.php?message=$message");
     }
      ?>
   </body>
