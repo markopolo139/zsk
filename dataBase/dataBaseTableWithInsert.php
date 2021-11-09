@@ -16,7 +16,7 @@
 
       $connect = new mysqli("localhost", "root", "123", "school_php");
 
-      $sql = "SELECT * FROM `users`;";
+      $sql = "SELECT * FROM `users` left join city using(city_id);";
 
       $result = $connect->query($sql);
 
@@ -27,6 +27,7 @@
             <th>Imie</th>
             <th>Nazwisko</th>
             <th>Data Urodzenia</th>
+            <th>Miasto</th>
             <th>Usuń</th>
           </tr>
       Table;
@@ -37,6 +38,7 @@
           <td>$row[name]</td>
           <td>$row[surname]</td>
           <td>$row[birth_day]</td>
+          <td>$row[city_name]</td>
           <td><a href="./baseDelete.php?id=$row[id]">Usuń</a></td>
         </tr>
         ROW;
@@ -49,6 +51,17 @@
             <input type="text" name="name" placeholder="Podaj imię"><br><br>
             <input type="text" name="surname" placeholder="Podaj nazwisko"><br><br>
             <input type="date" name="date"><br><br>
+            <select name="cityId">
+        FORMADDUSER;
+
+        $sql = "Select * from city order by city_name";
+        $result = $connect->query($sql);
+        while($row = $result->fetch_assoc()) {
+          echo "<option value=\"$row[city_id]\">$row[city_name]</option>";
+        }
+
+        echo <<< FORMADDUSER
+            </select><br>
             <input type="submit" value="Utwórz użytkownika">
           </form>
         FORMADDUSER;

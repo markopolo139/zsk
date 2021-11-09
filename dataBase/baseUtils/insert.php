@@ -13,10 +13,18 @@
     }
 
     require_once "./connect.php";
-    $sql = "Insert into users values (NULL, '$_POST[name]', '$_POST[surname]', '$_POST[date]');";
+    $sql = "Insert into users values (NULL, '$_POST[name]', '$_POST[surname]', '$_POST[date]','$_POST[cityId]');";
     $connect->query($sql);
+
+    if($connect->affected_rows == 1) {
+      $message = "Utworzono urzytkownika";
+    }
+    else {
+      $message = "Wystpił błąd podczas tworzenia";
+    }
+
     $connect->close();
-    $message = "Utworzono urzytkownika";
+
     header("location: ../dataBaseTableWithInsert.php?message=$message&adduser=");
   }
  ?>
